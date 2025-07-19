@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClassOrbit App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-title">ClassOrbit</div>
+      <div class="controls">
+        <div class="avatar">JS</div>
+      </div>
+    </header>
+
+    <section class="greeting">
+      <h1>Hello, Cristine! 🌅</h1>
+      <p>Ready for another productive day at UST?</p>
+    </section>
+
+    <section class="stats">
+      <div class="card">
+        <div class="icon">📅</div>
+        <p>Today</p>
+        <strong id="classCount">0 Classes</strong>
+      </div>
+      <div class="card">
+        <div class="icon">🟢</div>
+        <p>Attendance</p>
+        <strong id="attendance">0%</strong>
+      </div>
+      <div class="card">
+        <div class="icon">📘</div>
+        <p>Notes</p>
+        <strong id="noteCount">0</strong>
+      </div>
+    </section>
+
+    <section class="info-box" id="dateTimeBox">
+      <h3>📆 Date & Time</h3>
+      <p id="dateTimeDisplay"></p>
+      <h4>📍 Upcoming Classes</h4>
+      <ul id="upcomingClasses"></ul>
+    </section>
+
+    <section class="days" id="days"></section>
+    <section id="schedule" class="schedule-section">
+      <h2>📅 Today's Schedule</h2>
+    </section>
+
+    <nav class="bottom-nav">
+      <div class="active">📅<br/>Schedule</div>
+      <a href="map.html"><div>🗺<br/>Map</div></a>
+      <div>✅<br/>Attendance</div>
+      <a href="note.html"><div>📝<br/>Notes</div></a>
+      <div>👤<br/>Profile</div>
+    </nav>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
