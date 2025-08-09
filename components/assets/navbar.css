@@ -1,0 +1,46 @@
+/* Navigation bar styles for reuse */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #1C2541;
+  color: #fff;
+  padding: 10px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  z-index: 100;
+}
+.navbar .nav-item {
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+.navbar .nav-item.active, .navbar .nav-item:hover {
+  background: #3A86FF;
+  color: #fff;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .navbar {
+    font-size: 0.95em;
+    padding: 6px 0;
+  }
+  .navbar .nav-item {
+    padding: 4px 6px;
+    font-size: 0.95em;
+  }
+}
+
+/* Active indicator underline for nav-item */
+.navbar .nav-item.active {
+  box-shadow: 0 -3px 0 0 #FFC300 inset;
+  font-weight: bold;
+}

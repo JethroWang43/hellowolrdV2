@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UST Campus Map - ClassOrbit</title>
+  <link rel="stylesheet" href="../../assest/css/map.css">
+  <link rel="stylesheet" href="../../components/assets/navbar.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-title">
+  <span>🗺️ UST Campus Map</span>
+      </div>
+    </header>
+
+    <section class="map-main">
+      <div class="simple-map-container">
+        <div class="map-header">
+          <h3>📍 UST Campus Reference Map</h3>
+          <div class="zoom-controls">
+            <button id="zoomIn">+</button>
+            <button id="zoomOut">-</button>
+            <button id="resetZoom">Reset</button>
+          </div>
+        </div>
+        <div class="campus-map-wrapper">
+          <div class="image-container" id="imageContainer">
+            <img src="../maps/assest/img/ust-Pica.png" alt="UST Campus Map" class="campus-map-image" id="campusImage">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation -->
+  </div>
+  <!-- Navigation Bar Component Start -->
+  <nav class="navbar">
+    <a href="../../index.html" class="nav-item">📅<br/>Schedule</a>
+    <a href="map.html" class="nav-item active">🗺<br/>Map</a>
+    <a href="../../index.html#attendance" class="nav-item">✅<br/>Attendance</a>
+    <a href="../notes/note.html" class="nav-item">📝<br/>Notes</a>
+    <a href="#profile" class="nav-item">👤<br/>Profile</a>
+  </nav>
+  <!-- Navigation Bar Component End -->
+
+  <script src="../../assest/js/map.js"></script>
+</body>
+</html>

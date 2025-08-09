@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ClassOrbit App</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assest/css/style.css">
+  <link rel="stylesheet" href="components/assets/navbar.css">
 </head>
 <body>
   <div class="app">
     <header class="header">
-      <div class="header-title">ClassOrbit</div>
+      <div class="header-title">UST(BSIS)</div>
       <div class="controls">
         <div class="avatar">JS</div>
       </div>
@@ -50,15 +51,17 @@
       <h2>📅 Today's Schedule</h2>
     </section>
 
-    <nav class="bottom-nav">
-      <div class="active">📅<br/>Schedule</div>
-      <a href="map.html"><div>🗺<br/>Map</div></a>
-      <div>✅<br/>Attendance</div>
-      <a href="note.html"><div>📝<br/>Notes</div></a>
-      <div>👤<br/>Profile</div>
+    <!-- Navigation Bar Component Start -->
+    <nav class="navbar">
+  <a href="index.html" class="nav-item">📅<br/>Schedule</a>
+  <a href="pages/maps/map.html" class="nav-item">🗺<br/>Map</a>
+  <a href="pages/attendance/attendance.html" class="nav-item">✅<br/>Attendance</a>
+  <a href="pages/notes/note.html" class="nav-item">📝<br/>Notes</a>
+  <a href="#profile" class="nav-item">👤<br/>Profile</a>
     </nav>
+    <!-- Navigation Bar Component End -->
   </div>
 
-  <script src="script.js"></script>
+  <script src="assest/js/script.js"></script>
 </body>
 </html>

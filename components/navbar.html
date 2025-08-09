@@ -1,0 +1,23 @@
+<!-- Navigation Bar Component: Include this in your HTML files for a consistent nav -->
+<nav class="navbar">
+  <a href="#" class="nav-item" id="nav-schedule">📅<br/>Schedule</a>
+  <a href="#" class="nav-item" id="nav-map">🗺<br/>Map</a>
+  <a href="#" class="nav-item" id="nav-attendance">✅<br/>Attendance</a>
+  <a href="#" class="nav-item" id="nav-notes">📝<br/>Notes</a>
+  <a href="#profile" class="nav-item">👤<br/>Profile</a>
+  <script>
+    // Dynamically set nav links based on current location
+    (function() {
+      var path = window.location.pathname;
+      var isRoot = /index\.html$|\/$/i.test(path);
+      document.getElementById('nav-schedule').href = isRoot ? 'index.html' : '../../index.html';
+      document.getElementById('nav-map').href = isRoot ? 'pages/maps/map.html' : '../maps/map.html';
+      document.getElementById('nav-attendance').href = isRoot ? 'pages/attendance/attendance.html' : '../attendance/attendance.html';
+      document.getElementById('nav-notes').href = isRoot ? 'pages/notes/note.html' : '../notes/note.html';
+    })();
+  </script>
+</nav>
+<!-- To use: 
+1. Add <link rel="stylesheet" href="../../components/assets/navbar.css"> in your <head>.
+2. Add <!--#include file="../../components/navbar.html" --> or copy this nav where needed.
+-->
