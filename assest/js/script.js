@@ -16,7 +16,7 @@
       Thu: [
         { subject: 'Contem_W', subjectName: 'THE CONTEMPORARY WORLD', teacher: 'Vinarao', time: '7:00 AM – 8:30 AM', room: '1905' },
         { subject: 'IS26310', subjectName: 'QUANTITATIVE METHODS', teacher: 'Mariano, D.', time: '11:00 AM – 1:00 PM', room: '1905' },
-        { subject: 'ICS2610', subjectName: 'SOFTWARE ENGINEERING', teacher: 'Marollano', time: '5:00 PM – 7:00 PM', room: '2006' }
+        { subject: 'ICS2610', subjectName: 'SOFTWARE ENGINEERING', teacher: 'Marollano', time: '3:00 PM – 6:00 PM', room: '2006' }
       ],
       Fri: [
         { subject: 'ICS2609', subjectName: 'APPLICATIONS DEVELOPMENT AND SOFTWARE ENGINEERING', teacher: 'Marasigan, R.', time: '12:00 PM – 2:00 PM', room: '2010' },
