@@ -9,22 +9,31 @@
 </head>
 <body>
   <div class="app">
-    <div class="tabs" style="display:flex;gap:12px;margin-bottom:18px;">
-      <button id="expensesTab" class="tab-btn active" style="flex:1;padding:12px 0;border:none;border-radius:10px 10px 0 0;background:#ffe066;color:#23243a;font-weight:bold;cursor:pointer;">Expenses</button>
-      <button id="savingsTab" class="tab-btn" style="flex:1;padding:12px 0;border:none;border-radius:10px 10px 0 0;background:#23243a;color:#ffe066;font-weight:bold;cursor:pointer;">Savings</button>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button id="expensesTab" class="tab-btn active">Expenses</button>
+      <button id="savingsTab" class="tab-btn">Savings</button>
     </div>
+
+    <!-- Header -->
     <header class="header">
-      <div class="header-title">💸 Expenses Tracker</div>
+      <div class="header-title">Money Tracker</div>
       <div class="controls">
-        <div class="avatar">JS</div>
+        <div class="avatar">UST</div>
       </div>
     </header>
+
+    <!-- Expenses Page -->
     <div id="expensesPage">
+
+      <!-- Add Transaction -->
       <section class="expense-input-section">
         <h2>Add Transaction</h2>
         <form id="expenseForm">
           <input type="text" id="descInput" placeholder="Description" required>
           <input type="number" id="amountInput" placeholder="Amount" required>
+
           <select id="categoryInput">
             <option value="food">Food</option>
             <option value="transportation">Transportation</option>
@@ -33,72 +42,89 @@
             <option value="entertainment">Entertainment</option>
             <option value="other">Other</option>
           </select>
+
           <input type="date" id="dateInput" required>
           <button type="submit" class="save-btn">Add</button>
         </form>
       </section>
+
+      <!-- Summary -->
       <section class="summary-section">
         <h2>Summary</h2>
         <div class="month-selector">
           <label for="monthSelect">Month:</label>
           <select id="monthSelect"></select>
         </div>
-        <div class="savings-goal-row" style="margin:10px 0;">
-          <label for="savingsGoalInput" style="color:#ffe066;font-weight:bold;">Monthly Savings Goal:</label>
-          <input type="number" id="savingsGoalInput" placeholder="Enter goal (₱)" style="margin-left:8px;padding:6px 12px;border-radius:8px;border:1px solid #ffe066;background:#23243a;color:#ffe066;">
+
+        <div class="savings-goal-row">
+          <label for="savingsGoalInput">Monthly Savings Goal:</label>
+          <input type="number" id="savingsGoalInput" placeholder="Enter goal (₱)">
         </div>
-        <div id="moneySaved" style="margin-bottom:10px;font-weight:bold;color:#ffe066;"></div>
+
+        <div id="moneySaved"></div>
         <div id="summary"></div>
         <div id="weeklySummary"></div>
       </section>
+
+      <!-- Transactions -->
       <section class="expenses-list-section">
         <h2>Transactions</h2>
+        <div id="totalExpensesDisplay"></div>
         <div id="expensesList"></div>
       </section>
     </div>
+
+    <!-- Savings Page -->
     <div id="savingsPage" style="display:none;">
-        <div class="daily-savings-row" style="margin-bottom:10px;">
-          <label for="dailySavingsInput" style="color:#ffe066;font-weight:bold;">Add Daily Savings:</label>
-          <input type="number" id="dailySavingsInput" placeholder="Amount (₱)" style="margin-left:8px;padding:6px 12px;border-radius:8px;border:1px solid #ffe066;background:#23243a;color:#ffe066;">
-          <input type="date" id="dailySavingsDate" style="margin-left:8px;padding:6px 12px;border-radius:8px;border:1px solid #ffe066;background:#23243a;color:#ffe066;">
-          <button id="addDailySavingsBtn" class="save-btn" style="margin-left:8px;">Add</button>
+
+      <!-- Add Daily Savings -->
+      <div class="daily-savings-row">
+        <div class="month-selector">
+          <label for="savingsMonthSelect">Month (Savings):</label>
+          <select id="savingsMonthSelect"></select>
         </div>
-        <div id="dailySavingsSummary" style="margin-bottom:10px;font-weight:bold;color:#ffe066;"></div>
-        <div id="dailySavingsHistory" style="margin-bottom:10px;"></div>
-        <div class="savings-grid">
-          <section class="card savings-input-card">
-            <h2 class="section-title">Add Daily Savings</h2>
-            <div class="daily-savings-row">
-              <label for="dailySavingsInput">Amount (₱):</label>
-              <input type="number" id="dailySavingsInput" placeholder="Amount (₱)">
-              <input type="date" id="dailySavingsDate">
-              <button id="addDailySavingsBtn" class="save-btn">Add</button>
-            </div>
-          </section>
-          <section class="card savings-summary-card">
-            <h2 class="section-title">Savings Summary</h2>
-            <div id="dailySavingsSummary"></div>
-          </section>
-          <section class="card savings-history-card">
-            <h2 class="section-title">Daily Savings History</h2>
-            <div id="dailySavingsHistory"></div>
-          </section>
-          <section class="card savings-overview-card">
-            <h2 class="section-title">Savings Overview</h2>
-            <div class="savings-goal-row">
-              <label for="savingsGoalInput2">Monthly Savings Goal:</label>
-              <input type="number" id="savingsGoalInput2" placeholder="Enter goal (₱)">
-            </div>
-            <div id="moneySaved2"></div>
-            <div class="actual-saved-row">
-              <label for="actualSavedInput">Actual Saved:</label>
-              <input type="number" id="actualSavedInput" placeholder="How much did you save? (₱)">
-            </div>
-            <div id="savedCountSavings"></div>
-            <div id="savingsSummary"></div>
-          </section>
-        </div>
+        <label for="dailySavingsInput">Add Daily Savings:</label>
+        <input type="number" id="dailySavingsInput" placeholder="Amount (₱)">
+        <input type="date" id="dailySavingsDate">
+        <button id="addDailySavingsBtn" class="save-btn">Add</button>
+      </div>
+
+      <!-- Savings Grid -->
+      <div class="savings-grid">
+        
+        <!-- Summary Card -->
+        <section class="card savings-summary-card">
+          <h2 class="section-title">Savings Summary</h2>
+          <div id="dailySavingsSummary"></div>
+        </section>
+
+        <!-- History Card -->
+        <section class="card savings-history-card">
+          <h2 class="section-title">Daily Savings History</h2>
+          <div id="dailySavingsHistory"></div>
+        </section>
+
+        <!-- Overview Card -->
+        <section class="card savings-overview-card">
+          <h2 class="section-title">Savings Overview</h2>
+          <div class="savings-goal-row">
+            <label id="monthlyTotalSavedLabel">Total Saved This Month:</label>
+            <span id="monthlyTotalSaved"></span>
+          </div>
+
+          <div id="moneySaved2"></div>
+
+          <div class="actual-saved-row">
+            <label for="actualSavedInput">Actual Saved:</label>
+            <input type="number" id="actualSavedInput" placeholder="How much did you save? (₱)">
+          </div>
+
+          <div id="savedCountSavings"></div>
+          <div id="savingsSummary"></div>
+        </section>
+      </div>
     </div>
+
     <!-- Floating Hamburger Navigation -->
     <div class="floating-nav-overlay" id="floatingNavOverlay"></div>
     <button class="floating-hamburger" id="floatingHamburger" aria-label="Open navigation">
@@ -106,6 +132,7 @@
       <span></span>
       <span></span>
     </button>
+
     <nav class="floating-nav" id="floatingNav">
       <a href="../../index.html" class="nav-item">📅<b>Schedule</b></a>
       <a href="../maps/map.html" class="nav-item">🗺<b>Map</b></a>
@@ -113,7 +140,10 @@
       <a href="../notes/note.html" class="nav-item">📝<b>Notes</b></a>
       <a href="#profile" class="nav-item">👤<b>Profile</b></a>
     </nav>
+
   </div>
+
+  <!-- Scripts -->
   <script src="../../assest/js/expenses.js"></script>
   <script src="../../components/assets/navbar.js"></script>
 </body>
