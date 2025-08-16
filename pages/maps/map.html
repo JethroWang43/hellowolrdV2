@@ -36,15 +36,23 @@
     <!-- Navigation -->
   </div>
   <!-- Navigation Bar Component Start -->
-  <nav class="navbar">
-    <a href="../../index.html" class="nav-item">📅<br/>Schedule</a>
-    <a href="map.html" class="nav-item active">🗺<br/>Map</a>
-    <a href="../../index.html#attendance" class="nav-item">✅<br/>Attendance</a>
-    <a href="../notes/note.html" class="nav-item">📝<br/>Notes</a>
-    <a href="#profile" class="nav-item">👤<br/>Profile</a>
-  </nav>
+  <!-- Removed horizontal navbar -->
   <!-- Navigation Bar Component End -->
+  <div class="floating-nav-overlay" id="floatingNavOverlay"></div>
+  <button class="floating-hamburger" id="floatingHamburger" aria-label="Open navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav class="floating-nav" id="floatingNav">
+  <a href="../../index.html" class="nav-item">📅<b>Schedule</b></a>
+  <a href="map.html" class="nav-item">🗺<b>Map</b></a>
+  <a href="../expenses/expenses.html" class="nav-item">💸<b>Expenses</b></a>
+  <a href="../notes/note.html" class="nav-item">📝<b>Notes</b></a>
+  <a href="#profile" class="nav-item">👤<b>Profile</b></a>
+  </nav>
 
   <script src="../../assest/js/map.js"></script>
+  <script src="../../assest/js/script.js"></script>
 </body>
 </html>

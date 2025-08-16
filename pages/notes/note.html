@@ -82,17 +82,23 @@
     </section>
 
     <!-- Navigation -->
-    <!-- Navigation Bar Component Start -->
-    <nav class="navbar">
-      <a href="../../index.html" class="nav-item">📅<br/>Schedule</a>
-      <a href="../maps/map.html" class="nav-item">🗺<br/>Map</a>
-      <a href="../../index.html#attendance" class="nav-item">✅<br/>Attendance</a>
-      <a href="note.html" class="nav-item active">📝<br/>Notes</a>
-      <a href="#profile" class="nav-item">👤<br/>Profile</a>
-    </nav>
-    <!-- Navigation Bar Component End -->
+    <!-- Floating Hamburger Navigation -->
+<div class="floating-nav-overlay" id="floatingNavOverlay"></div>
+<button class="floating-hamburger" id="floatingHamburger" aria-label="Open navigation">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<nav class="floating-nav" id="floatingNav">
+  <a href="../../index.html" class="nav-item">📅<b>Schedule</b></a>
+  <a href="../maps/map.html" class="nav-item">🗺<b>Map</b></a>
+  <a href="../expenses/expenses.html" class="nav-item">💸<b>Expenses</b></a>
+  <a href="note.html" class="nav-item">📝<b>Notes</b></a>
+  <a href="#profile" class="nav-item">👤<b>Profile</b></a>
+</nav>
   </div>
 
   <script src="../../assest/js/note.js"></script>
+  <script src="../../components/assets/navbar.js"></script>
 </body>
 </html>

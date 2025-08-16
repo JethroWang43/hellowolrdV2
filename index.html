@@ -52,12 +52,19 @@
     </section>
 
     <!-- Navigation Bar Component Start -->
-    <nav class="navbar">
-  <a href="index.html" class="nav-item">📅<br/>Schedule</a>
-  <a href="pages/maps/map.html" class="nav-item">🗺<br/>Map</a>
-  <a href="pages/attendance/attendance.html" class="nav-item">✅<br/>Attendance</a>
-  <a href="pages/notes/note.html" class="nav-item">📝<br/>Notes</a>
-  <a href="#profile" class="nav-item">👤<br/>Profile</a>
+    <!-- Floating Hamburger Navigation -->
+  <div class="floating-nav-overlay" id="floatingNavOverlay"></div>
+    <button class="floating-hamburger" id="floatingHamburger" aria-label="Open navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="floating-nav" id="floatingNav">
+  <a href="index.html" class="nav-item">📅<b>Schedule</b></a>
+  <a href="pages/maps/map.html" class="nav-item">🗺<b>Map</b></a>
+  <a href="pages/expenses/expenses.html" class="nav-item">💸<b>Expenses Tracker</b></a>
+  <a href="pages/notes/note.html" class="nav-item">📝<b>Notes</b></a>
+  <a href="#profile" class="nav-item">👤<b>Profile</b></a>
     </nav>
     <!-- Navigation Bar Component End -->
   </div>

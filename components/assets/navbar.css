@@ -1,3 +1,224 @@
+/* Overlay for nav */
+.floating-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(20, 24, 40, 0.25); /* dark blue overlay */
+  backdrop-filter: blur(2px);
+  z-index: 1998;
+  display: none;
+  transition: opacity 0.3s;
+}
+.floating-nav-overlay.open {
+  display: block;
+  opacity: 1;
+}
+
+.floating-hamburger {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #23243a 60%, #1a1b2e 100%); /* dark blue */
+  border: 2px solid #ffe066; /* yellow accent */
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.floating-hamburger.open {
+  background: #ffe066;
+}
+.floating-hamburger span {
+  display: block;
+  width: 28px;
+  height: 4px;
+  margin: 4px 0;
+  background: #ffe066; /* yellow lines */
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.floating-hamburger.open span {
+  background: #23243a;
+}
+.floating-hamburger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.floating-hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.floating-hamburger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.floating-nav {
+  position: fixed;
+  top: 0;
+  top: 0;
+  right: 0;
+  width: 220px;
+  height: 100vh;
+  background: linear-gradient(120deg, #23243a 60%, #ffe066 120%);
+  box-shadow: -2px 0 40px 8px rgba(255,224,102,0.10), -2px 0 32px rgba(20,24,40,0.22);
+  border-top-left-radius: 32px;
+  border-bottom-left-radius: 32px;
+  border-left: 6px solid #ffe066;
+  backdrop-filter: blur(8px);
+  display: none;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 32px 24px 24px 24px;
+  z-index: 1999;
+  opacity: 0;
+  transform: translateX(100%);
+}
+.floating-nav.open {
+  display: flex;
+  opacity: 1;
+  transform: translateX(0);
+}
+.floating-nav .nav-item {
+  margin-bottom: 2rem;
+  font-size: 1.15rem;
+  color: #ffe066; /* yellow text */
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.floating-nav .nav-item:hover {
+  color: #23243a;
+  background: #ffe066;
+}
+.floating-nav .nav-item:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .floating-nav {
+    width: 80vw;
+    padding: 80px 16px 16px 16px;
+  }
+  .floating-hamburger {
+    width: 44px;
+    height: 44px;
+    top: 12px;
+    right: 12px;
+  }
+}
+/* Floating hamburger styles */
+.floating-hamburger {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #23243a 60%, #1a1b2e 100%); /* dark blue */
+  border: 2px solid #ffe066; /* yellow accent */
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.floating-hamburger span {
+  display: block;
+  width: 18px;
+  height: 3px;
+  margin: 3px 0;
+  background: #ffe066; /* yellow lines */
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.floating-hamburger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.floating-hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.floating-hamburger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.floating-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 220px;
+  height: 100vh;
+  background: linear-gradient(135deg, #23243a 80%, #1a1b2e 100%); /* dark blue */
+  box-shadow: -2px 0 32px rgba(20,24,40,0.22);
+  border-top-left-radius: 22px;
+  border-bottom-left-radius: 22px;
+  backdrop-filter: blur(8px);
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 80px 24px 24px 24px;
+  z-index: 1999;
+}
+.floating-nav.open {
+  display: flex;
+}
+.floating-nav .nav-item {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: #ffe066; /* yellow text */
+  text-decoration: none;
+  font-weight: 600;
+}
+.floating-nav .nav-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Floating nav header and close button styles */
+.floating-nav-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+.floating-nav-logo {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffe066;
+  letter-spacing: 1px;
+}
+.floating-nav-close {
+  background: none;
+  border: none;
+  font-size: 1.7rem;
+  color: #ffe066;
+  cursor: pointer;
+  margin-left: 8px;
+  line-height: 1;
+  padding: 0 4px;
+  border-radius: 6px;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+}
+.floating-nav-close:hover {
+  background: #ffe066;
+  color: #23243a;
+}
+
 /* Navigation bar styles for reuse */
 .navbar {
   display: flex;

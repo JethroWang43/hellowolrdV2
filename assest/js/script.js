@@ -1,27 +1,98 @@
+// Make floating hamburger draggable
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.querySelector('.floating-hamburger');
+  if (!hamburger) return;
+  let isDragging = false, offsetX = 0, offsetY = 0;
+
+  hamburger.addEventListener('mousedown', function(e) {
+    isDragging = true;
+    offsetX = e.clientX - hamburger.offsetLeft;
+    offsetY = e.clientY - hamburger.offsetTop;
+    hamburger.style.transition = 'none';
+  });
+
+  document.addEventListener('mousemove', function(e) {
+    if (!isDragging) return;
+    let x = e.clientX - offsetX;
+    let y = e.clientY - offsetY;
+    // Clamp to window edges
+    x = Math.max(0, Math.min(window.innerWidth - hamburger.offsetWidth, x));
+    y = Math.max(0, Math.min(window.innerHeight - hamburger.offsetHeight, y));
+    hamburger.style.left = x + 'px';
+    hamburger.style.top = y + 'px';
+  });
+
+  document.addEventListener('mouseup', function() {
+    isDragging = false;
+    hamburger.style.transition = '';
+  });
+
+  // Touch support
+  hamburger.addEventListener('touchstart', function(e) {
+    isDragging = true;
+    const touch = e.touches[0];
+    offsetX = touch.clientX - hamburger.offsetLeft;
+    offsetY = touch.clientY - hamburger.offsetTop;
+    hamburger.style.transition = 'none';
+  });
+  document.addEventListener('touchmove', function(e) {
+    if (!isDragging) return;
+    const touch = e.touches[0];
+    let x = touch.clientX - offsetX;
+    let y = touch.clientY - offsetY;
+    x = Math.max(0, Math.min(window.innerWidth - hamburger.offsetWidth, x));
+    y = Math.max(0, Math.min(window.innerHeight - hamburger.offsetHeight, y));
+    hamburger.style.left = x + 'px';
+    hamburger.style.top = y + 'px';
+  });
+  document.addEventListener('touchend', function() {
+    isDragging = false;
+    hamburger.style.transition = '';
+  });
+});
+// Floating hamburger menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+  var floatingHamburger = document.getElementById('floatingHamburger');
+  var floatingNav = document.getElementById('floatingNav');
+  if (floatingHamburger && floatingNav) {
+    floatingHamburger.addEventListener('click', function() {
+      floatingNav.classList.toggle('open');
+      floatingHamburger.classList.toggle('open');
+    });
+    // Optional: close nav when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!floatingNav.contains(e.target) && !floatingHamburger.contains(e.target)) {
+        floatingNav.classList.remove('open');
+        floatingHamburger.classList.remove('open');
+      }
+    });
+  }
+});
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
   const scheduleData = {
-      Mon: [
-        { subject: 'ELE2-SM', subjectName: 'ELECTIVE 2', teacher: 'Aragon, M.', time: '8:00 AM – 11:00 AM', room: '1811' },
-        { subject: 'IS26310', subjectName: 'QUANTITATIVE METHODS', teacher: 'Mariano, D.', time: '12:30 PM – 3:30 PM', room: '1802' }
-      ],
-      Tue: [
-        { subject: 'Contem_W', subjectName: 'THE CONTEMPORARY WORLD', teacher: 'Vinarao', time: '7:00 AM – 8:30 AM', room: '1905' },
-        { subject: 'ICS2609', subjectName: 'APPLICATIONS DEVELOPMENT AND SOFTWARE ENGINEERING', teacher: 'Marasigan, R.', time: '10:00 AM – 1:00 PM', room: '1802' },
-        { subject: 'IS2638', subjectName: 'KNOWLEDGE MANAGEMENT AND DATA', teacher: 'Ladao, C.', time: '2:30 PM – 4:30 PM', room: '2013' }
-      ],
-      Wed: [
-        { subject: 'IS2639', subjectName: 'IT INFRASTRUCTURE AND NETWORK', teacher: 'Fernando', time: '1:00 PM – 4:00 PM', room: '1907' },
-        { subject: 'ELE2-SM', subjectName: 'ELECTIVE 2', teacher: 'Aragon, M.', time: '5:00 PM – 7:00 PM', room: '1907' }
-      ],
-      Thu: [
-        { subject: 'Contem_W', subjectName: 'THE CONTEMPORARY WORLD', teacher: 'Vinarao', time: '7:00 AM – 8:30 AM', room: '1905' },
-        { subject: 'IS26310', subjectName: 'QUANTITATIVE METHODS', teacher: 'Mariano, D.', time: '11:00 AM – 1:00 PM', room: '1905' },
-        { subject: 'ICS2610', subjectName: 'SOFTWARE ENGINEERING', teacher: 'Marollano', time: '3:00 PM – 6:00 PM', room: '2006' }
-      ],
-      Fri: [
-        { subject: 'ICS2609', subjectName: 'APPLICATIONS DEVELOPMENT AND SOFTWARE ENGINEERING', teacher: 'Marasigan, R.', time: '12:00 PM – 2:00 PM', room: '2010' },
-        { subject: 'IS2638', subjectName: 'KNOWLEDGE MANAGEMENT AND DATA', teacher: 'Catubag', time: '6:00 PM – 9:00 PM', room: '1810' }
-      ]
+    Mon: [
+      { subject: 'IS26310', subjectName: 'QUANTITATIVE METHODS', teacher: 'Mariano, D.', time: '12:30 AM – 3:30 AM', room: '1802' },
+      { subject: 'ICS2609', subjectName: 'APPLICATIONS DEVELOPMENT AND SOFTWARE ENGINEERING', teacher: 'Marasigan, R.', time: '6:00 PM – 8:00 PM', room: '2012' }
+    ],
+    Tue: [
+      { subject: 'Contem_W', subjectName: 'THE CONTEMPORARY WORLD', teacher: 'Vinarao', time: '7:00 AM – 8:30 AM', room: '1905' },
+      { subject: 'ICS2609', subjectName: 'APPLICATIONS DEVELOPMENT AND SOFTWARE ENGINEERING', teacher: 'Marasigan, R.', time: '10:00 AM – 1:00 PM', room: '1802' }
+    ],
+    Wed: [
+      { subject: 'ELE2-SM', subjectName: 'ELECTIVE 2', teacher: 'Aragon, M.', time: '1:30 PM – 3:30 PM', room: '2012' },
+      { subject: 'ELE2-SM', subjectName: 'ELECTIVE 2', teacher: 'Aragon, M.', time: '5:00 PM – 8:00 PM', room: '1811' }
+    ],
+    Thu: [
+      { subject: 'Contem_W', subjectName: 'THE CONTEMPORARY WORLD', teacher: 'Vinarao', time: '7:00 AM – 8:30 AM', room: '1905' },
+      { subject: 'IS26310', subjectName: 'QUANTITATIVE METHODS', teacher: 'Mariano, D.', time: '11:00 AM – 1:00 PM', room: '1905' },
+      { subject: 'ICS2610', subjectName: 'SOFTWARE ENGINEERING', teacher: 'Marollano', time: '3:00 PM – 6:00 PM', room: '2006' }
+    ],
+    Fri: [
+      { subject: 'IS2639', subjectName: 'IT INFRASTRUCTURE AND NETWORK', teacher: 'Fernando', time: '11:00 AM – 12:30 PM', room: '1909' },
+      { subject: 'IS2639', subjectName: 'IT INFRASTRUCTURE AND NETWORK', teacher: 'Fernando', time: '12:30 PM – 1:00 PM', room: '2010' },
+      { subject: 'IS2638', subjectName: 'KNOWLEDGE MANAGEMENT AND DATA', teacher: 'Ladao, C.', time: '3:30 PM – 5:00 PM', room: '2015' },
+      { subject: 'IS2638', subjectName: 'KNOWLEDGE MANAGEMENT AND DATA', teacher: 'Catubag', time: '6:00 PM – 9:00 PM', room: '1810' }
+    ],
   };
 
     const notesKey = 'classOrbitNotes';
@@ -255,11 +326,23 @@ function renderSchedule(day) {
       const todaySchedule = scheduleData[today] || [];
       const currentTime = now.getHours() * 60 + now.getMinutes();
       const currentSeconds = now.getSeconds();
+      // Support splitting on en dash, em dash, or regular dash
+      function splitTimeRange(timeStr) {
+        // Try all dash types
+        let parts = timeStr.split(' - ');
+        if (parts.length < 2) parts = timeStr.split(' – '); // en dash
+        if (parts.length < 2) parts = timeStr.split(' — '); // em dash
+        return parts;
+      }
       const upcoming = todaySchedule.filter(cls => {
-      const [start] = cls.time.split(' - ');
-      const [h, m] = start.split(':').map(Number);
-      const classStartMinutes = h * 60 + m;
-      return classStartMinutes >= currentTime;
+        const [start] = splitTimeRange(cls.time);
+        const [h, mPart] = start.split(':');
+        let m = 0;
+        if (mPart) {
+          m = parseInt(mPart);
+        }
+        const classStartMinutes = parseInt(h) * 60 + m;
+        return classStartMinutes >= currentTime;
       });
 
       if (!upcomingList) {
@@ -268,9 +351,13 @@ function renderSchedule(day) {
       
       upcomingList.innerHTML = '';
       upcoming.forEach(cls => {
-      const [start] = cls.time.split(' - ');
-      const [h, m] = start.split(':').map(Number);
-      const classTimeMinutes = h * 60 + m;
+      const [start] = splitTimeRange(cls.time);
+      const [h, mPart] = start.split(':');
+      let m = 0;
+      if (mPart) {
+        m = parseInt(mPart);
+      }
+      const classTimeMinutes = parseInt(h) * 60 + m;
       let minutesLeft = classTimeMinutes - currentTime;
       let secondsLeft = 0 - currentSeconds;
       if (secondsLeft < 0) {
