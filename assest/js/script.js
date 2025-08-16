@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
   const scheduleData = {
     Mon: [
-      { subject: 'IS26310', subjectName: 'QUANTITATIVE METHODS', teacher: 'Mariano, D.', time: '12:30 AM – 3:30 AM', room: '1802' },
+      { subject: 'IS26310', subjectName: 'QUANTITATIVE METHODS', teacher: 'Mariano, D.', time: '12:30 PM – 3:30 PM', room: '1802' },
       { subject: 'ICS2609', subjectName: 'APPLICATIONS DEVELOPMENT AND SOFTWARE ENGINEERING', teacher: 'Marasigan, R.', time: '6:00 PM – 8:00 PM', room: '2012' }
     ],
     Tue: [
